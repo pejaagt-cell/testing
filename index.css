@@ -1,0 +1,322 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #f6f0e7;
+    color: #625044;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+.page {
+    max-width: 1000px;
+    margin: auto;
+    padding: 65px 25px 30px;
+    text-align: center;
+}
+
+.date {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #b18b7d;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(35px, 6vw, 58px);
+    font-weight: 400;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #a18c7e;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+    margin: 65px auto;
+}
+
+/* PHOTO */
+
+.photo-wrapper {
+    position: relative;
+    background: #fffdf8;
+    padding: 13px 13px 35px;
+    width: 285px;
+    transform: rotate(-4deg);
+    box-shadow: 0 12px 30px #8a6d551c;
+    animation: appear 1s ease both;
+}
+
+.photo {
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    background: #e8ded2;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s;
+}
+
+.photo-wrapper:hover .photo img {
+    transform: scale(1.05);
+}
+
+.photo-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 21px;
+    margin-top: 10px;
+    color: #96796b;
+}
+
+.tape {
+    position: absolute;
+    width: 85px;
+    height: 23px;
+    background: #dfc8a5aa;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(3deg);
+    z-index: 2;
+}
+
+/* NOTE */
+
+.note-wrapper {
+    width: 370px;
+    animation: appear 1.3s ease both;
+}
+
+.note {
+    background: #fffaf0;
+    padding: 35px 32px;
+    text-align: left;
+    box-shadow: 0 12px 35px #8a6d5518;
+    border: 1px solid #eee3d1;
+    transform: rotate(2deg);
+    position: relative;
+}
+
+.note::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: #ead9c6;
+}
+
+.note-top {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Caveat', cursive;
+    font-size: 27px;
+    color: #ad8070;
+    margin-bottom: 25px;
+}
+
+.note-preview {
+    font-family: 'Caveat', cursive;
+    font-size: 21px;
+    line-height: 1.7;
+    color: #766052;
+}
+
+.note-preview p {
+    margin-bottom: 15px;
+}
+
+.handwriting {
+    color: #b78b7c;
+    font-style: italic;
+}
+
+button {
+    border: none;
+    background: #b58a79;
+    color: #fffaf0;
+    padding: 12px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #8e6b5d;
+    transform: translateY(-3px);
+}
+
+.note-footer {
+    font-family: 'Caveat', cursive;
+    font-size: 19px;
+    color: #b18b7d;
+    text-align: right;
+    margin-top: 25px;
+}
+
+/* FULL NOTE */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: #33271fc9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    z-index: 10;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.full-note {
+    background: #fffaf0;
+    max-width: 540px;
+    width: 100%;
+    padding: 50px 45px;
+    position: relative;
+    transform: translateY(25px);
+    transition: 0.4s;
+    box-shadow: 0 20px 60px #0003;
+    text-align: left;
+}
+
+.overlay.active .full-note {
+    transform: translateY(0);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    margin: 0;
+    padding: 8px 12px;
+    background: transparent;
+    color: #8d7464;
+}
+
+.note-date {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #b18b7d;
+    margin-bottom: 20px;
+}
+
+.full-note h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 37px;
+    color: #ad8070;
+    margin-bottom: 20px;
+}
+
+.full-message {
+    font-family: 'Caveat', cursive;
+    font-size: 21px;
+    line-height: 1.7;
+    color: #766052;
+}
+
+.full-message p {
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 25px;
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: #b18b7d;
+}
+
+footer {
+    color: #a18c7e;
+    font-family: 'Caveat', cursive;
+    font-size: 19px;
+    margin-top: 30px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) rotate(0deg);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+    .page {
+        padding-top: 45px;
+    }
+
+    .content {
+        flex-direction: column;
+        gap: 55px;
+        margin-top: 55px;
+    }
+
+    .photo-wrapper {
+        width: 260px;
+    }
+
+    .photo {
+        height: 300px;
+    }
+
+    .note-wrapper {
+        width: min(100%, 360px);
+    }
+
+    .full-note {
+        padding: 45px 27px;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    .full-message {
+        font-size: 19px;
+    }
+}
+.full-note {
+    max-height: 85vh;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.content {
+    align-items: center;
+}
+
+.photo-wrapper {
+    flex-shrink: 0;
+    align-self: center;
+}
